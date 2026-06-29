@@ -6,37 +6,174 @@
     
     <!-- ========== SEO BASIQUE SANS INDEXATION ========== -->
     <meta name="description" content="Le bazar de Nobsy - Articles variés à bon prix avec livraison à Joliette, Québec">
-    <meta name="keywords" content="bazar, bons deals, achat en ligne, Nobsy, pas cher, Canada, Montréal, Toronto, Joliette">
     <meta name="author" content="Le bazar de Nobsy">
-    <meta name="language" content="French">
-    <meta name="theme-color" content="#0084ff">
+    <meta name="theme-color" content="#7c3aed">
     <link rel="canonical" href="https://denobsylebazar-cpu.github.io/Bazar-de-nobsy-/">
     
     <!-- ========== Aperçu WhatsApp / Facebook ========== -->
     <meta property="og:title" content="Le bazar de Nobsy - Bons deals et articles variés">
-    <meta property="og:description" content="Découvre les meilleurs deals et articles variés à petits prix sur Le bazar de Nobsy">
+    <meta property="og:description" content="Découvre les meilleurs deals et articles variés à petits prix">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://denobsylebazar-cpu.github.io/Bazar-de-nobsy-/">
     <meta property="og:image" content="https://denobsylebazar-cpu.github.io/Bazar-de-nobsy-/preview.jpg">
     
-    <title>Le bazar de Nobsy - Bons deals et articles variés</title>
+    <title>Le bazar de Nobsy</title>
     
-    <!-- ========== STYLE MINIMAL ========== -->
+    <!-- ========== STYLE 3D ATTIRANT ========== -->
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            margin: 0;
-            font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #f8fafc;
+            font-family: 'Poppins', system-ui, sans-serif;
+            min-height: 100vh;
+            background: 
+                radial-gradient(1200px 800px at 80% -10%, #a855f7 0%, transparent 50%),
+                radial-gradient(1000px 600px at 0% 110%, #06b6d4 0%, transparent 50%),
+                linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            text-align: center;
             padding: 20px;
+            perspective: 1000px;
+            overflow: hidden;
         }
-        .wrapper { max-width: 480px; }
-        h1 { font-size: clamp(28px, 6vw, 40px); margin: 0 0 12px; font-weight: 700; }
-        p { font-size: clamp(16px, 3.5vw, 18px); opacity: 0.9; margin: 0 0 28px; }
-        .btn {
-            display: inline-block; background: #0084ff; color: white; text-decoration: none;
+
+        /* Particules animées en fond */
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent);
+            background-repeat: repeat;
+            background-size: 100px 100px;
+            animation: float 20s linear infinite;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .card-3d {
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            padding: 50px 40px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 32px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+            animation: cardFloat 6s ease-in-out infinite;
+        }
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-15px) rotateX(5deg); }
+        }
+
+        .card-3d:hover {
+            transform: translateY(-20px) rotateX(8deg) scale(1.02);
+        }
+
+        .logo-3d {
+            font-size: clamp(32px, 8vw, 48px);
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #f472b6 0%, #a855f7 50%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
+            transform: translateZ(30px);
+        }
+
+        .subtitle {
+            font-size: clamp(16px, 3.5vw, 18px);
+            opacity: 0.9;
+            margin-bottom: 36px;
+            line-height: 1.6;
+            transform: translateZ(20px);
+        }
+
+        .btn-3d {
+            display: inline-block;
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 18px;
+            transform: translateZ(40px);
+            box-shadow: 
+                0 10px 30px rgba(168, 85, 247, 0.4),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-3d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-3d:hover {
+            transform: translateZ(50px) translateY(-5px);
+            box-shadow: 
+                0 20px 40px rgba(168, 85, 247, 0.6),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-3d:hover::before {
+            left: 100%;
+        }
+
+        .btn-3d:active {
+            transform: translateZ(30px) translateY(2px);
+        }
+
+        /* Emoji qui flotte */
+        .emoji {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+            transform: translateZ(35px);
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateZ(35px) translateY(0px); }
+            50% { transform: translateZ(35px) translateY(-10px); }
+        }
+    </style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="card-3d">
+        <div class="emoji">🛍️✨</div>
+        <h1 class="logo-3d">Le bazar de Nobsy</h1>
+        <p class="subtitle">Bons deals, articles variés, livraison à Joliette, Québec</p>
+        <a href="https://denobsylebazar-cpu.github.io/Bazar-de-nobsy-/" class="btn-3d" rel="noopener">
+            Visiter le site →
+        </a>
+    </main>
+</body>
+</html>
